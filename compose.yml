@@ -1,0 +1,25 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        GOIMGVER: $GOIMGVER
+        UID: $UID
+        GID: $GID
+        USERNAME: $USERNAME
+        GROUPNAME: $GROUPNAME
+        TIMEZONE: $TIMEZONE
+        WORKDIR: $WORKDIR
+        GOPROJNAME: $GOPROJNAME
+    extra_hosts:
+      - host.docker.internal:host-gateway 
+    ports:
+      - $REQUESTPORT:8080
+    tty: true
+    working_dir: $WORKDIR
+    volumes:
+      - ./:$WORKDIR
+    entrypoint: >
+      sh -c "
+        bash entrypoint.sh
+      "
