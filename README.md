@@ -2,6 +2,7 @@
 - Windows10 on WSL2(Ubuntu 22.04.3 LTS)
 - Docker version 24.0.6, build ed223bc
 - Docker Compose version v2.4.1
+- VS-CODE (DevContainer 0.317.0 インストール済み)
 
 # 始め方
 1. コンテナ立ち上げ
