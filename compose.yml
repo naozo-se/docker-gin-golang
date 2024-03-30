@@ -8,15 +8,18 @@ services:
         GID: $GID
         USERNAME: $USERNAME
         GROUPNAME: $GROUPNAME
-        TIMEZONE: $TIMEZONE
         WORKDIR: $WORKDIR
-        GOPROJNAME: $GOPROJNAME
+        AIRVER: $AIRVER
+        
     extra_hosts:
       - host.docker.internal:host-gateway 
     ports:
       - $REQUESTPORT:8080
     tty: true
     working_dir: $WORKDIR
+    environment:
+      TZ: $TIMEZONE
+      GOPROJNAME: $GOPROJNAME
     volumes:
       - ./:$WORKDIR
     entrypoint: >

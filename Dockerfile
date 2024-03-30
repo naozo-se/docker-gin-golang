@@ -14,11 +14,8 @@ ARG GROUPNAME
 ARG UID
 ARG GID
 ARG WORKDIR
-ARG TIMEZONE
 ARG GOPROJNAME
-
-# タイムゾーン設定
-ENV TZ $TIMEZONE
+ARG AIRVER
 
 # ユーザー追加
 RUN groupadd -g $GID $GROUPNAME && \
@@ -35,7 +32,4 @@ USER $USERNAME
 WORKDIR $WORKDIR
 
 # air をインストール
-RUN go install github.com/cosmtrek/air@latest
-
-# プロジェクト名設定
-ENV GOPROJNAME $GOPROJNAME
+RUN go install github.com/cosmtrek/air@$AIRVER
